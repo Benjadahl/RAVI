@@ -144,13 +144,13 @@ def getHiddenColours():
 
 @app.route("/")
 def main():
-    headers = ["ID", "Navn", "Data", "Stencil", "Program", "Montage", "Delivery", "PCB", "Components", "Kommentarer", "Komplet"]
+    headers = ["ID", "Navn", "Data", "Dato", "Deadline", "Lokation", "Ansvarlig", "Opgave", "Prioritet", "Kommentarer", "Komplet"]
     return render_template('index.html', headers=headers, body=getTasks(), colours=getColours(), hiddenStates=[], link="/hidden/")
 
 @app.route("/hidden/")
 def hidden():
 	tasks = getHiddenTasks()
-	headers = ["ID", "Navn", "Data", "Stencil", "Program", "Montage", "Delivery", "PCB", "Components", "Kommentarer", "Komplet"]
+	headers = ["ID", "Navn", "Data", "Dato", "Deadline", "Lokation", "Ansvarlig", "Opgave", "Prioritet", "Kommentarer", "Komplet"]
 	return render_template('index.html', headers=headers, body=tasks[0], colours=getHiddenColours(), hiddenStates=tasks[1],  link="/")
 
 @app.route('/addRow/', methods=['POST'])
